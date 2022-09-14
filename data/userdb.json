@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "User": 1
+  },
+  "models": {
+    "User": {
+      "1": "{\"id\":1,\"firstName\":\"Bishal\",\"middleName\":\"Kumar\",\"lastName\":\"Dutta\",\"email\":\"duttabishal@yahoo.com\",\"phone\":\"8653356936\",\"role\":0,\"createdOn\":\"2022-09-14T06:28:10.459Z\",\"modifiedOn\":\"2022-09-14T12:55:53.657Z\"}"
+    }
+  }
+}
