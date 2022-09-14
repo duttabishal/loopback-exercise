@@ -4,7 +4,8 @@ import {TimeStampEntityMixin} from '../mixin/time-stamp.entity.mixin';
 export class UserBase extends Entity {
   @property({
     type: 'number',
-    required: true,
+    id: true,
+    generated: true,
   })
   id: number;
 
