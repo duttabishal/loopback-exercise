@@ -1,5 +1,5 @@
 export enum Roles {
-  SuperAdmin = 0,
-  Admin = 1,
-  Subscriber = 2,
+  SuperAdmin = 1,
+  Admin = 2,
+  Subscriber = 3,
 }

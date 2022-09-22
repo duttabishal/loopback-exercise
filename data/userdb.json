@@ -1,10 +1,22 @@
 {
   "ids": {
-    "User": 1
+    "User": 2,
+    "Customer": 1
   },
   "models": {
     "User": {
-      "1": "{\"id\":1,\"firstName\":\"Bishal\",\"middleName\":\"Kumar\",\"lastName\":\"Dutta\",\"email\":\"duttabishal@yahoo.com\",\"phone\":\"8653356936\",\"role\":0,\"createdOn\":\"2022-09-14T06:28:10.459Z\",\"modifiedOn\":\"2022-09-14T12:55:53.657Z\"}"
+      "1": "{\"id\":1,\"firstName\":\"Bishal\",\"middleName\":\"Kumar\",\"lastName\":\"Dutta\",\"email\":\"duttabishal@yahoo.com\",\"phone\":\"8653356936\",\"roleId\":1,\"createdOn\":\"2022-09-14T06:28:10.459Z\",\"modifiedOn\":\"2022-09-14T12:55:53.657Z\"}",
+      "2": "{\"id\":2,\"firstName\":\"ABC\",\"lastName\":\"XYZ\",\"email\":\"abc@xyz.com\",\"phone\":\"8918474446\",\"roleId\":3,\"createdOn\":\"2022-09-21T12:47:10.459Z\",\"modifiedOn\":\"2022-09-21T12:47:10.459Z\"}"
+    },
+    "Role": {
+      "1": "{\"key\":1,\"name\":\"SuperAdmin\"}",
+
+      "2": "{\"key\":2,\"name\":\"Admin\"}",
+
+      "3": "{\"key\":3,\"name\":\"Subscriber\"}"
+    },
+    "Customer": {
+      "1": "{\"id\":1,\"name\":\"ABC XYZ\",\"address\":\"some address\",\"createdOn\":\"2022-09-21T01:00:10.459Z\",\"modifiedOn\":\"2022-09-21T01:00:10.459Z\",\"userId\":2}"
     }
   }
 }
