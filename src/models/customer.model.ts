@@ -29,16 +29,18 @@ export class Customer extends Entity {
   @property({
     type: 'date',
     default: () => new Date(),
+    name: 'created_at',
   })
   public createdOn?: Date;
 
   @property({
     type: 'date',
     default: () => new Date(),
+    name: 'updated_at',
   })
   modifiedOn?: Date;
 
-  @belongsTo(() => User, {keyTo: 'id'})
+  @belongsTo(() => User, {keyTo: 'id'}, {name: 'user_id'})
   userId: number;
 
   constructor(data?: Partial<Customer>) {
