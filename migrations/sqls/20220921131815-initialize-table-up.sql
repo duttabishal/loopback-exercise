@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS main;
 SET search_path TO main, public;
 
 CREATE TABLE role (
-  id INT NOT NULL,
+  id SERIAL,
   role_name TEXT NOT NULL,
   CONSTRAINT pk_role_id PRIMARY KEY(id)
 );
@@ -21,7 +21,7 @@ CREATE TABLE "user" (
   CONSTRAINT pk_user_id PRIMARY KEY(id),
   CONSTRAINT fk_role_id
     FOREIGN KEY(role_id)
-    REFERENCES role(id)
+    REFERENCES role(id) ON DELETE SET NULL
 );
 
 
@@ -34,5 +34,5 @@ CREATE TABLE IF NOT EXISTS customer (
   updated_at TIMESTAMP,
   user_id INT,
   CONSTRAINT pk_customer_id PRIMARY KEY(id),
-  CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES "user" (id)
+  CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES "user" (id) ON DELETE SET NULL
 );
