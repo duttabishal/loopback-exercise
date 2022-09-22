@@ -1,7 +1,9 @@
-import {Entity, model, property} from '@loopback/repository';
-import {TimeStampEntityMixin} from '../mixin/time-stamp.entity.mixin';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {Roles} from '../enum';
+import {Role} from './role.model';
 
-export class UserBase extends Entity {
+@model({settings: {strict: false}})
+export class User extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -36,30 +38,29 @@ export class UserBase extends Entity {
   })
   phone?: string;
 
-  @property({
-    type: 'number',
-    required: true,
-  })
-  role: number;
-
+  // @belongsTo(() => Role, {keyFrom: 'key'})
+  // role: Roles;
   @property({
     type: 'string',
   })
   address?: string;
 
-  // @property({
-  //   type: 'date',
-  //   default: () => new Date(),
-  // })
-  // createdOn?: date;
+  @belongsTo(() => Role, {name: 'role'})
+  roleId: Roles;
 
-  // @property({
-  //   type: 'date',
-  //   default: () => new Date(),
-  // })
-  // modifiedOn?: date;
+  @property({
+    type: 'date',
+    default: () => new Date(),
+  })
+  public createdOn?: Date;
 
-  constructor(data?: Partial<UserBase>) {
+  @property({
+    type: 'date',
+    default: () => new Date(),
+  })
+  modifiedOn?: Date;
+
+  constructor(data?: Partial<User>) {
     super(data);
   }
 }
@@ -68,7 +69,7 @@ export interface UserRelations {
   // describe navigational properties here
 }
 
-export type UserWithRelations = UserBase & UserRelations;
+export type UserWithRelations = User & UserRelations;
 
-@model({settings: {strict: false}})
-export class User extends TimeStampEntityMixin(UserBase) {}
+// @model({settings: {strict: false}})
+// export class User extends TimeStampEntityMixin(UserBase) {}
