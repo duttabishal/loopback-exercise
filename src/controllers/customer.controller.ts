@@ -37,7 +37,7 @@ export class CustomerController {
         'application/json': {
           schema: getModelSchemaRef(Customer, {
             title: 'NewCustomer',
-            exclude: ['id'],
+            exclude: ['id', 'createdOn', 'modifiedOn'],
           }),
         },
       },
@@ -119,7 +119,10 @@ export class CustomerController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Customer, {partial: true}),
+          schema: getModelSchemaRef(Customer, {
+            partial: true,
+            exclude: ['createdOn', 'modifiedOn'],
+          }),
         },
       },
     })

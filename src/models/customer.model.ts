@@ -41,7 +41,7 @@ export class Customer extends Entity {
   modifiedOn?: Date;
 
   @belongsTo(() => User, {keyTo: 'id'}, {name: 'user_id'})
-  userId: number;
+  userId?: number;
 
   constructor(data?: Partial<Customer>) {
     super(data);
