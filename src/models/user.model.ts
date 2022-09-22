@@ -2,7 +2,7 @@ import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Roles} from '../enum';
 import {Role} from './role.model';
 
-@model({settings: {strict: false}})
+@model({name: 'user', settings: {strict: false}})
 export class User extends Entity {
   @property({
     type: 'number',
@@ -14,17 +14,20 @@ export class User extends Entity {
   @property({
     type: 'string',
     required: true,
+    name: 'first_name',
   })
   firstName: string;
 
   @property({
     type: 'string',
+    name: 'middle_name',
   })
   middleName?: string;
 
   @property({
     type: 'string',
     required: true,
+    name: 'last_name',
   })
   lastName: string;
 
@@ -45,18 +48,20 @@ export class User extends Entity {
   })
   address?: string;
 
-  @belongsTo(() => Role, {name: 'role'})
+  @belongsTo(() => Role, {name: 'role'}, {name: 'role_id'})
   roleId: Roles;
 
   @property({
     type: 'date',
     default: () => new Date(),
+    name: 'created_at',
   })
   public createdOn?: Date;
 
   @property({
     type: 'date',
     default: () => new Date(),
+    name: 'updated_at',
   })
   modifiedOn?: Date;
 
