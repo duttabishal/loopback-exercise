@@ -62,7 +62,8 @@
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.2",
     "loopback-connector-postgresql": "^5.5.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@loopback/build": "^9.0.2",
