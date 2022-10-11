@@ -1,3 +1,4 @@
+import {inject} from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -17,6 +18,7 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
+import winston from 'winston';
 import {User} from '../models';
 import {UserRepository} from '../repositories';
 
@@ -24,6 +26,8 @@ export class UserController {
   constructor(
     @repository(UserRepository)
     public userRepository: UserRepository,
+    @inject('winstonLogger.logger')
+    private logger: winston.Logger,
   ) {}
 
   @post('/users')
@@ -69,6 +73,9 @@ export class UserController {
     },
   })
   async find(@param.filter(User) filter?: Filter<User>): Promise<User[]> {
+    this.logger.info(
+      'Winstonlogger component info logger - user controller get users',
+    );
     return this.userRepository.find(filter);
   }
 
